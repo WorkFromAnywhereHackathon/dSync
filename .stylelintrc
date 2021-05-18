@@ -1,0 +1,11 @@
+{
+  'extends': [
+    'stylelint-config-standard',
+    'stylelint-scss'
+  ],
+  'rules': {
+    'block-no-empty': null,
+    'color-hex-length': 'long',
+    'at-rule-no-unknown': null,
+  }
+}
