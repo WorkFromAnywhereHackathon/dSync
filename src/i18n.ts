@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
-import { isDevelopment } from './constants';
+import { IS_DEVELOPMENT } from './constants';
 
 i18n
   .use(LanguageDetector)
@@ -13,7 +13,7 @@ i18n
 
     fallbackLng: 'en',
 
-    debug: isDevelopment,
+    debug: IS_DEVELOPMENT,
 
     keySeparator: false,
 

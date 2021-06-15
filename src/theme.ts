@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const MuiTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#2E3192',
+      main: '#4A70BF',
       contrastText: '#666666',
     },
     secondary: {
@@ -14,7 +14,7 @@ const MuiTheme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
+    fontFamily: ['Gilory-Light', 'Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
   breakpoints: {
     values: {

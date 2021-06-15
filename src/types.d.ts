@@ -3,6 +3,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
     [key: string]: any;
   }
 }
+
 export interface Form {
   innerRef?: any;
 }

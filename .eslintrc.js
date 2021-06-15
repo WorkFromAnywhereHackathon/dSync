@@ -28,6 +28,8 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     'linebreak-style': 'off',
     'react/jsx-filename-extension': 'off',
     'react/jsx-uses-react': 'off',

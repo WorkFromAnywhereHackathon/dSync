@@ -2,6 +2,13 @@ import { makeStyles } from '@material-ui/core';
 import theme from '../../theme';
 
 const useStyles = makeStyles({
+  wrapper: {
+    '& p': {
+      padding: '5px',
+      borderRadius: '5px',
+      backgroundColor: '#f2f2f2',
+    },
+  },
   logo: {
     position: 'absolute',
     left: '148px',
