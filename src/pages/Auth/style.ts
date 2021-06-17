@@ -1,17 +1,34 @@
-import { makeStyles, createStyles } from '@material-ui/core';
-import MuiTheme from '../../theme';
+import { makeStyles } from '@material-ui/core';
+import theme from 'theme';
 
-const useStyles = makeStyles((theme: typeof MuiTheme) =>
-  createStyles({
-    root: {
-      minHeight: '100vh',
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      right: 0,
-      top: 0,
+const useStyles = makeStyles({
+  root: {
+    height: '100vh',
+    display: 'flex',
+    flexWrap: 'wrap-reverse',
+    alignItems: 'stretch',
+  },
+  routing: {
+    minWidth: '340px',
+    flexBasis: '40%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '& div': {
+      maxWidth: '238px',
     },
-  }),
-);
+  },
+  svgBox: {
+    flexBasis: '60%',
+    minWidth: '350px',
+    flexGrow: 2,
+    backgroundColor: `${theme.palette.primary.main}`,
+    textAlign: 'center',
+    '& svg': {
+      marginTop: '50vh',
+      transform: 'translateY(-50%)',
+    },
+  },
+});
 
 export default useStyles;

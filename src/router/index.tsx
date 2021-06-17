@@ -36,7 +36,7 @@ const AppRouter = () => {
         <Switch>
           <PrivateRoute exact path="/users" component={Users} />
           <Route path="/auth" component={Auth} />
-          <Redirect exact path="/" to="/auth/login" />
+          <Redirect exact path="/" to="/auth" />
           <Route component={NotFound} />
         </Switch>
       </Suspense>

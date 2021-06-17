@@ -3,18 +3,20 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const MuiTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#2E3192',
-      contrastText: '#666666',
+      main: '#3F74E2',
+      dark: '#0D4CCE',
+      contrastText: '#000000',
     },
     secondary: {
-      main: '#666666',
+      light: '#7F8892',
+      main: '#ffffff',
     },
     error: {
       main: '#FF0000',
     },
   },
   typography: {
-    fontFamily: ['Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
+    fontFamily: ['Gilory-Light', 'Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
   breakpoints: {
     values: {

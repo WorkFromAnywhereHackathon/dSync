@@ -15,3 +15,8 @@ export const setLoggedOut = createAsyncAction(
 export const setLoading = createAction('LOGOUT/SET_LOADING')<boolean>();
 
 export const setAuthenticating = createAction('LOGOUT/SET_AUTHENTICATING')<boolean>();
+
+export const setVerification = createAction('LOGOUT/SET_VERIFICATION')<{
+  verifyToken?: string;
+  isVerification: boolean;
+}>();

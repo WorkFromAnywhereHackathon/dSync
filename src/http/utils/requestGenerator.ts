@@ -3,7 +3,7 @@ import { ApiMapItem, Params } from 'http/types';
 import { httpMock, http, mock } from 'http/index';
 import getCofig from './getConfig';
 
-const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params) => {
+const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, isDataExchange = true) => {
   const path = generatePath(apiMapRequest.url, params);
   const axiosInstance = apiMapRequest.mock ? httpMock : http;
   if (apiMapRequest.mock) {
@@ -22,7 +22,7 @@ const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params) => {
   }
 
   return (payload: any) =>
-    axiosInstance[apiMapRequest.method || 'get'](path, payload, getCofig())
+    axiosInstance[apiMapRequest.method || 'get'](path, payload, getCofig({ isDataExchange }))
       .then((res: any) => res)
       .catch((error: any) => error);
 };

@@ -9,13 +9,15 @@ const initialState: Auth = {
   id: '',
   isLoggedIn: false,
   token: '',
-  refreshToken: '1111',
+  refreshToken: '',
   isAuthenticated: false,
   errorMessage: '',
   firstName: '',
   lastName: '',
   loading: false,
   isAuthenticating: true,
+  isVerification: false,
+  verifyToken: '',
 };
 
 const reducer = createReducer<Auth, AuthActions>(initialState)
@@ -45,6 +47,11 @@ const reducer = createReducer<Auth, AuthActions>(initialState)
   .handleAction(actions.setLoggedOut.failure, (state, { payload: error }) => ({
     ...state,
     errorMessage: error,
+  }))
+  .handleAction(actions.setVerification, (state, { payload: { isVerification, verifyToken } }) => ({
+    ...state,
+    isVerification,
+    verifyToken,
   }));
 
 export default reducer;

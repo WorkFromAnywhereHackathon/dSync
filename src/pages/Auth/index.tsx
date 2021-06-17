@@ -1,19 +1,30 @@
+import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 // import ChangeLang from 'components/ChangeLang';
 import Logo from 'components/Logo';
-import Login from './Login';
+import { RootState } from 'store/reducers';
+import SignIn from './SignIn';
+import Verification from './Verification';
+
 import useStyles from './style';
 
 const Auth = () => {
   const classes = useStyles();
+  const { isVerification } = useSelector((state: RootState) => state.auth);
+
   return (
     <div className={classes.root}>
-      <Logo />
       {/* <ChangeLang /> */}
-      <Switch>
-        <Route exact path="/auth" component={Login} />
-        <Redirect to="/auth" />
-      </Switch>
+      <div className={classes.routing}>
+        <Switch>
+          <Route exact path="/auth" component={SignIn} />
+          <Route exact path="/auth/verification" component={Verification} />
+          <Redirect to="/auth" />
+        </Switch>
+      </div>
+      <div className={classes.svgBox}>
+        <Logo color="secondary" />
+      </div>
     </div>
   );
 };

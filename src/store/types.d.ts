@@ -14,6 +14,8 @@ export interface Auth {
   lastName: string;
   loading: boolean;
   isAuthenticating: boolean;
+  isVerification: boolean;
+  verifyToken?: string;
 }
 
 export interface LogOut {

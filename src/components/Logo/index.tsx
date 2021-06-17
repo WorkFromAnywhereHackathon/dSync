@@ -1,14 +1,10 @@
-import { Box, Typography, SvgIcon } from '@material-ui/core';
+import { SvgIcon } from '@material-ui/core';
+import { ReactComponent as LogoSvg } from '../../assets/img/dSync.svg';
 import useStyles from './style';
 
-export default function Logo() {
+const Logo = ({ ...props }) => {
   const classes = useStyles();
-  return (
-    <Box>
-      <Typography className={classes.subtitle}>
-        Welcom to <b>dSync</b>
-      </Typography>
-      <SvgIcon className={classes.logo} viewBox="0 0 306 100" />
-    </Box>
-  );
-}
+  return <SvgIcon className={classes.logo} component={LogoSvg} viewBox="0 0 280 93" {...props} />;
+};
+
+export default Logo;

@@ -1,17 +1,18 @@
 import { makeStyles, createStyles } from '@material-ui/core';
+import theme from 'theme';
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       width: '100%',
       padding: '19px',
-      backgroundColor: '#2e3192',
-      color: '#ffffff',
-      boxShadow: '0px 4px 15px rgba(38, 64, 152, 0.3)',
-      borderRadius: '50px',
-
+      borderRadius: '6px',
+      maxHeight: '44px',
+      fontWeight: 'bold',
+      textTransform: 'unset',
+      backgroundColor: `${theme.palette.primary.main}`,
       '&:hover': {
-        backgroundColor: '#2e3192',
+        backgroundColor: `${theme.palette.primary.dark}`,
       },
     },
   }),

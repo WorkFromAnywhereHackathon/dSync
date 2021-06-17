@@ -5,7 +5,7 @@ import store from 'store';
 import { setLoggedOut } from 'store/auth/actions';
 import resetTokenUtil from './utils/resetToken';
 
-const baseURL = process.env.REACT_APP_BASE_API;
+const baseURL = process.env.REACT_APP_BASE_API_IDENTITY;
 
 export const http = axios.create({
   baseURL,

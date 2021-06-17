@@ -4,39 +4,40 @@ import apiMap from 'http/apiMap';
 import requestGenerator from 'http/utils/requestGenerator';
 import { RootState } from 'store/reducers';
 import { Auth } from 'store/types';
-import { setLoggedIn, setLoggedOut, setLoading, setAuthenticating } from './actions';
+import { setLoggedIn, setLoggedOut, setLoading, setAuthenticating, setVerification } from './actions';
 
-function* loginUser({ payload: { email, password, clb } }: ReturnType<typeof setLoggedIn.request>): SagaIterator {
+function* loginUser({ payload: { phoneNumber, clb } }: ReturnType<typeof setLoggedIn.request>): SagaIterator {
   try {
+    yield put(setLoading(true));
+
     const {
-      data: { firstName, lastName, token, id },
+      // eslint-disable-next-line camelcase
+      data: { verify_token },
       isAxiosError,
       response,
-    } = yield call(requestGenerator(apiMap.login), {
-      email,
-      password,
+    } = yield call(requestGenerator(apiMap.login, undefined, false), {
+      PhoneNumber: phoneNumber,
     });
 
     if (isAxiosError) throw Error(response?.data?.error);
 
     yield put(
-      setLoggedIn.success({
-        id,
-        token,
-        lastName,
-        firstName,
+      setVerification({
+        verifyToken: verify_token,
+        isVerification: true,
       }),
     );
 
     yield put(setLoading(false));
     yield put(setAuthenticating(false));
 
-    window.localStorage.setItem('credentinals', JSON.stringify({ id, token, lastName, firstName }));
+    // window.localStorage.setItem('credentinals', JSON.stringify({ id, token, lastName, firstName }));
 
     clb();
   } catch {
     // 400 show error modal
     yield put(setLoggedIn.failure({ error: 'Smth went wrong' }));
+    yield put(setLoading(true));
   }
 }
 
