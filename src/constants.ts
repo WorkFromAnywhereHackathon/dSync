@@ -1,3 +1,4 @@
+export const MOMENT_CALENDAR_FORMAT = 'YYYY-MM-DD';
 export const BASE_URL = process.env.REACT_APP_BASE_API;
 export const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
 

@@ -18,6 +18,10 @@ const apiMap: ApiMap = {
     url: 'connect/refresh-token',
     method: 'get',
   },
+  events: {
+    url: '/api/events/:date/byDate',
+    method: 'get',
+  },
 };
 
 export default apiMap;

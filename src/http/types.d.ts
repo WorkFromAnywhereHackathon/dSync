@@ -12,5 +12,5 @@ export interface ApiMap {
 }
 
 export interface Params {
-  [type: string]: number | boolean | undefined;
+  [type: string]: string | number | boolean | undefined;
 }

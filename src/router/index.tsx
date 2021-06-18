@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 const Auth = lazy(() => import('pages/Auth'));
 const Users = lazy(() => import('pages/UserBoard'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const Calendar = lazy(() => import('pages/Calendar'));
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ const AppRouter = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <PrivateRoute exact path="/users" component={Users} />
+          {/* <PrivateRoute exact path="/calendar" component={Calendar} /> */}
+          <Route exact path="/calendar" component={Calendar} />
           <Route path="/auth" component={Auth} />
           <Redirect exact path="/" to="/auth" />
           <Route component={NotFound} />

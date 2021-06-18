@@ -4,6 +4,7 @@ const MuiTheme = createMuiTheme({
   palette: {
     primary: {
       main: '#3F74E2',
+      // contrastText: '#FFFFFF',
       dark: '#0D4CCE',
       contrastText: '#000000',
     },
@@ -14,7 +15,15 @@ const MuiTheme = createMuiTheme({
     error: {
       main: '#FF0000',
     },
+    background: {
+      default: '#F5F9FF',
+      paper: '#FFFFFF',
+    },
   },
+  shape: {
+    borderRadius: 6,
+  },
+  spacing: 8,
   typography: {
     fontFamily: ['Gilory-Light', 'Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
