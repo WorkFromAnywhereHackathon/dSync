@@ -4,7 +4,7 @@ import { httpMock, http, mock } from 'http/index';
 import { AxiosRequestConfig } from 'axios';
 import getConfig from './getConfig';
 
-const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, config: AxiosRequestConfig = {}) => {
+const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, config?: AxiosRequestConfig) => {
   const path = generatePath(apiMapRequest.url, params);
   const axiosInstance = apiMapRequest.mock ? httpMock : http;
   if (apiMapRequest.mock) {

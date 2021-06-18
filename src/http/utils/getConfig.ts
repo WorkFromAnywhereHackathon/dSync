@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 
-const getConfig = (config: AxiosRequestConfig): AxiosRequestConfig => {
+const getConfig = (config: AxiosRequestConfig = {}): AxiosRequestConfig => {
   return {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('token')}`,
