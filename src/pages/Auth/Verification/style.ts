@@ -17,8 +17,9 @@ const useStyles = makeStyles({
   },
   textFieldLabel: {
     '& input': {
-      fontSize: '12px',
+      fontSize: '14px',
       fontWeight: 400,
+      lineHeight: '17px',
     },
   },
   hint: {

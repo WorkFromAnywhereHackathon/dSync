@@ -16,7 +16,7 @@ export interface Auth {
   phoneNumber: string;
   isAuthenticating: boolean;
   isVerification: boolean;
-  verifyToken?: string;
+  verifyToken: string;
 }
 
 export interface LogOut {

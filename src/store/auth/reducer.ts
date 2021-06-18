@@ -18,7 +18,7 @@ const initialState: Auth = {
   isAuthenticating: true,
   isVerification: false,
   phoneNumber: '',
-  verifyToken: '',
+  verifyToken: '123456',
 };
 
 const reducer = createReducer<Auth, AuthActions>(initialState)
@@ -58,7 +58,7 @@ const reducer = createReducer<Auth, AuthActions>(initialState)
     ...state,
     errorMessage: error,
   }))
-  .handleAction(actions.setVerification, (state, { payload: { isVerification, verifyToken } }) => ({
+  .handleAction(actions.setVerification, (state, { payload: { isVerification, verifyToken = '' } }) => ({
     ...state,
     isVerification,
     verifyToken,

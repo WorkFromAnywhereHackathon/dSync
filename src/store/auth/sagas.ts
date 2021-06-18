@@ -17,7 +17,7 @@ function* verifyPhone({
       data: { verify_token },
       isAxiosError,
       response,
-    } = yield call(requestGenerator(apiMap.login, undefined, false), {
+    } = yield call(requestGenerator(apiMap.login), {
       PhoneNumber: phoneNumber,
     });
 
@@ -51,7 +51,7 @@ function* loginUser({
       data: { access_token, expires_in, refresh_token, scope },
       isAxiosError,
       response,
-    } = yield call(requestGenerator(apiMap.getToken, undefined, false), {
+    } = yield call(requestGenerator(apiMap.getToken), {
       phone_number: phoneNumber,
       verification_token: verificationToken,
       grant_type: grantType,

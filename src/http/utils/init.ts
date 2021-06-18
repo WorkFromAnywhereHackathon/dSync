@@ -10,7 +10,7 @@ const baseURL = process.env.REACT_APP_BASE_API_IDENTITY;
 export const http = axios.create({
   baseURL,
   withCredentials: false,
-  headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS' },
+  headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
 });
 
 export const httpMock = axios.create({ baseURL });
@@ -30,6 +30,23 @@ http.interceptors.response.use(
 
     return Promise.reject(error);
   },
+);
+
+http.interceptors.request.use(
+  config => {
+    return {
+      ...config,
+      headers: {
+        ...config.headers,
+        Authorization: `Bearer ${window.localStorage.getItem('token')}`,
+      },
+      baseUrl:
+        config.url === 'api/identity/getOTP' || config.url === 'connect/token'
+          ? process.env.REACT_APP_BASE_API_IDENTITY
+          : process.env.REACT_APP_BASE_API_DATA,
+    };
+  },
+  error => Promise.reject(error),
 );
 
 httpMock.interceptors.response.use(

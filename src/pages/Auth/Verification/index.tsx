@@ -1,10 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Button, IconButton, CircularProgress, TextField } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { setLoggedIn } from 'store/auth/actions';
+import { setLoggedIn, setVerifyPhone } from 'store/auth/actions';
 import { RootState } from 'store/reducers';
 import SubmitButton from 'components/Button';
 import useStyles from './style';
@@ -13,11 +13,25 @@ const Verification = () => {
   const classes = useStyles();
   const { t } = useTranslation('auth');
   const dispatch = useDispatch();
-  const { loading, phoneNumber } = useSelector((state: RootState) => state.auth);
+  const { loading, phoneNumber, verifyToken } = useSelector((state: RootState) => state.auth);
   const inputRef = useRef<HTMLInputElement>(null);
   const history = useHistory();
 
-  const onResend: () => void = () => ({});
+  useLayoutEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.maxLength = 8;
+      inputRef.current.minLength = 6;
+      inputRef.current.value = verifyToken;
+    }
+  }, [verifyToken]);
+
+  const onResend: () => void = () => {
+    dispatch(
+      setVerifyPhone.request({
+        phoneNumber,
+      }),
+    );
+  };
 
   const onLogIn: () => void = () => {
     console.log(inputRef.current);

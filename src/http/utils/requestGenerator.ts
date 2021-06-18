@@ -1,9 +1,8 @@
 import { generatePath } from 'react-router-dom';
 import { ApiMapItem, Params } from 'http/types';
 import { httpMock, http, mock } from 'http/index';
-import getCofig from './getConfig';
 
-const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, isDataExchange = true) => {
+const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params) => {
   const path = generatePath(apiMapRequest.url, params);
   const axiosInstance = apiMapRequest.mock ? httpMock : http;
   if (apiMapRequest.mock) {
@@ -22,7 +21,7 @@ const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, isDataExch
   }
 
   return (payload: any) =>
-    axiosInstance[apiMapRequest.method || 'get'](path, payload) // third param getCofig({ isDataExchange })
+    axiosInstance[apiMapRequest.method || 'get'](path, payload)
       .then((res: any) => res)
       .catch((error: any) => error);
 };
