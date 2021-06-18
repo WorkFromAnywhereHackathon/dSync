@@ -34,8 +34,6 @@ const Verification = () => {
   };
 
   const onLogIn: () => void = () => {
-    console.log(inputRef.current);
-
     dispatch(
       setLoggedIn.request({
         phoneNumber,
@@ -43,7 +41,7 @@ const Verification = () => {
         grantType: 'phone_number_token',
         clientId: 'phone_number_authentication',
         clientSecret: 'secret',
-        clb: () => history.push('/users'),
+        clb: () => history.push('/calendar'),
       }),
     );
   };
