@@ -13,7 +13,10 @@ export interface Auth {
   firstName: string;
   lastName: string;
   loading: boolean;
+  phoneNumber: string;
   isAuthenticating: boolean;
+  isVerification: boolean;
+  verifyToken?: string;
 }
 
 export type Event = {

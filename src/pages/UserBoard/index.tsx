@@ -16,7 +16,7 @@ const Users = () => {
       <div>Users Page</div>
       <span>{firstName}</span>
       <span>{lastName}</span>
-      <Button title="Log out" handleClick={handleClick} />
+      <Button title="Log out" onClick={handleClick} />
     </>
   );
 };

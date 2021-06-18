@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     textAlign: 'left',
   },
   label: {
-    color: '#666666',
     // fontWeight: '600',
     fontSize: '16px',
     lineHeight: '30px',

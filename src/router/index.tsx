@@ -39,7 +39,7 @@ const AppRouter = () => {
           {/* <PrivateRoute exact path="/calendar" component={Calendar} /> */}
           <Route exact path="/calendar" component={Calendar} />
           <Route path="/auth" component={Auth} />
-          <Redirect exact path="/" to="/auth/login" />
+          <Redirect exact path="/" to="/auth" />
           <Route component={NotFound} />
         </Switch>
       </Suspense>

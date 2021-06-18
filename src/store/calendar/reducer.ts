@@ -1,6 +1,6 @@
 import { createReducer, ActionType } from 'typesafe-actions';
 import moment from 'moment';
-import { momentCalendarFormat } from '../../constants';
+import { MOMENT_CALENDAR_FORMAT } from '../../constants';
 import { Calendar } from '../types';
 import * as actions from './actions';
 
@@ -9,7 +9,7 @@ type CalendarActions = ActionType<typeof actions>;
 const initialState: Calendar = {
   loading: false,
   events: [],
-  date: moment().format(momentCalendarFormat),
+  date: moment().format(MOMENT_CALENDAR_FORMAT),
 };
 
 const reducer = createReducer<Calendar, CalendarActions>(initialState)

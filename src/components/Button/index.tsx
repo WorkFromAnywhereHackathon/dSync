@@ -1,19 +1,23 @@
+import { FC } from 'react';
 import Button from '@material-ui/core/Button';
+
 import useStyles from './style';
 
-interface IButton {
+interface IButton extends Omit<typeof Button, 'title' | 'onClick' | 'fullWidth' | 'color' | 'className'> {
   title: string;
-  handleClick: any;
+  onClick(): void;
+  fullWidth?: boolean;
+  color?: any;
+  className?: string;
 }
 
-const FormButton = ({ title, handleClick }: IButton) => {
+const SubmitButton: FC<IButton> = ({ title, onClick, ...props }) => {
   const classes = useStyles();
+
   return (
-    <div>
-      <Button className={classes.root} type="submit" onClick={handleClick}>
-        {title}
-      </Button>
-    </div>
+    <Button className={classes.root} onClick={onClick} type="submit" {...props}>
+      {title}
+    </Button>
   );
 };
-export default FormButton;
+export default SubmitButton;

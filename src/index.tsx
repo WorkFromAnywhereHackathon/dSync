@@ -5,6 +5,7 @@ import AppRouter from 'router';
 import { MuiThemeProvider } from '@material-ui/core';
 import MuiTheme from './theme';
 import './i18n';
+
 import './index.scss';
 
 ReactDOM.render(
