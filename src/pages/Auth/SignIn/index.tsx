@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Typography, CircularProgress } from '@material-ui/core';
+import { setVerification } from 'store/auth/actions';
 import { RootState } from 'store/reducers';
 import Button from 'components/Button';
 import Form from './Form';
@@ -10,8 +11,17 @@ import useStyles from './style';
 const SignIn = () => {
   const classes = useStyles();
   const { t } = useTranslation('auth');
+  const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.auth);
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    dispatch(
+      setVerification({
+        isVerification: false,
+      }),
+    );
+  }, [dispatch]);
 
   const onSubmit = () => formRef.current?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
 

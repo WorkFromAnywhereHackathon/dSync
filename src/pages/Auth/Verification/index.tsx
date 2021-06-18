@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Button, IconButton, CircularProgress, TextField } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { setLoggedIn } from 'store/auth/actions';
 import { RootState } from 'store/reducers';
 import SubmitButton from 'components/Button';
 import useStyles from './style';
@@ -11,13 +12,27 @@ import useStyles from './style';
 const Verification = () => {
   const classes = useStyles();
   const { t } = useTranslation('auth');
-  const { loading } = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch();
+  const { loading, phoneNumber } = useSelector((state: RootState) => state.auth);
   const inputRef = useRef<HTMLInputElement>(null);
   const history = useHistory();
 
   const onResend: () => void = () => ({});
 
-  const onLogIn: () => void = () => ({});
+  const onLogIn: () => void = () => {
+    console.log(inputRef.current);
+
+    dispatch(
+      setLoggedIn.request({
+        phoneNumber,
+        verificationToken: inputRef.current?.value || '',
+        grantType: 'phone_number_token',
+        clientId: 'phone_number_authentication',
+        clientSecret: 'secret',
+        clb: () => history.push('/users'),
+      }),
+    );
+  };
 
   return (
     <div>

@@ -22,7 +22,7 @@ const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params, isDataExch
   }
 
   return (payload: any) =>
-    axiosInstance[apiMapRequest.method || 'get'](path, payload, getCofig({ isDataExchange }))
+    axiosInstance[apiMapRequest.method || 'get'](path, payload) // third param getCofig({ isDataExchange })
       .then((res: any) => res)
       .catch((error: any) => error);
 };

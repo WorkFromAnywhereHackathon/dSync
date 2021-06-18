@@ -1,10 +1,28 @@
 import { createAsyncAction, createAction } from 'typesafe-actions';
 
+export const setVerifyPhone = createAsyncAction(
+  'VERIFY_PHONE/SET_VERIFY_PHONE/REQUEST',
+  'VERIFY_PHONE/SET_VERIFY_PHONE/SUCCESS',
+  'VERIFY_PHONE/SET_VERIFY_PHONE/FAILURE',
+  // eslint-disable-next-line camelcase
+)<{ phoneNumber: string; clb?(): void }, { verifyToken: string; phoneNumber: string }, any>();
+
 export const setLoggedIn = createAsyncAction(
   'LOGIN/SET_LOGGED_IN/REQUEST',
   'LOGIN/SET_LOGGED_IN/SUCCESS',
   'LOGIN/SET_LOGGED_IN/FAILURE',
-)<any, any, any>();
+)<
+  {
+    phoneNumber: string;
+    verificationToken: string;
+    grantType: string;
+    clientId: string;
+    clientSecret: string;
+    clb?(): void;
+  },
+  any,
+  any
+>();
 
 export const setLoggedOut = createAsyncAction(
   'LOGOUT/SET_LOGGED_OUT/REQUEST',

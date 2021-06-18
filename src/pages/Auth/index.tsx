@@ -18,7 +18,7 @@ const Auth = () => {
       <div className={classes.routing}>
         <Switch>
           <Route exact path="/auth" component={SignIn} />
-          <Route exact path="/auth/verification" component={Verification} />
+          {isVerification && <Route exact path="/auth/verification" component={Verification} />}
           <Redirect to="/auth" />
         </Switch>
       </div>

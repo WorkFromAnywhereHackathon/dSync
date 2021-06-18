@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { setLoggedIn } from 'store/auth/actions';
+import { setVerifyPhone } from 'store/auth/actions';
 import { Typography } from '@material-ui/core';
 import PhoneInput from 'material-ui-phone-number';
 import { RootState } from 'store/reducers';
@@ -23,6 +23,7 @@ const Login: FC<FormType> = ({ innerRef }) => {
   const { t } = useTranslation('auth');
   const dispatch = useDispatch();
   const { errorMessage } = useSelector((state: RootState) => state.auth);
+
   const history = useHistory();
   const {
     register,
@@ -35,7 +36,7 @@ const Login: FC<FormType> = ({ innerRef }) => {
 
   const onSubmit = (formValues: Values) => {
     dispatch(
-      setLoggedIn.request({
+      setVerifyPhone.request({
         ...formValues,
         phoneNumber: phoneFormat(formValues.phoneNumber),
         clb: () => history.push('/auth/verification'),

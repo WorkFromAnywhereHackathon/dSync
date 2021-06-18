@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     alignItems: 'stretch',
   },
   routing: {
-    minWidth: '340px',
+    minWidth: '238px',
     flexBasis: '40%',
     display: 'flex',
     justifyContent: 'center',
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   svgBox: {
     flexBasis: '60%',
     minWidth: '350px',
-    flexGrow: 2,
+    flexGrow: 1,
     backgroundColor: `${theme.palette.primary.main}`,
     textAlign: 'center',
     '& svg': {
