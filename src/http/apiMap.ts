@@ -35,6 +35,10 @@ const apiMap: ApiMap = {
     method: 'post',
     mock: [200, { token: '0000' }],
   },
+  events: {
+    url: '/api/events/:date/byDate',
+    method: 'get',
+  },
 };
 
 export default apiMap;

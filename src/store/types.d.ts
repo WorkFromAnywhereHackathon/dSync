@@ -16,6 +16,26 @@ export interface Auth {
   isAuthenticating: boolean;
 }
 
+export type Event = {
+  Id: string;
+  Name: string;
+  Description: string;
+  StartDate: Date;
+  EndDate: Date;
+  OwnerUserId: string;
+  IsOwner: boolean;
+  Invites: null;
+  IsEnabled: boolean;
+  Color: string;
+  ConfirmBeforeInHours: null;
+  NotifyBeforeInMinutes: null;
+};
+export interface Calendar {
+  loading: boolean;
+  events: Event[];
+  date: string;
+}
+
 export interface LogOut {
   logOut: boolean;
 }

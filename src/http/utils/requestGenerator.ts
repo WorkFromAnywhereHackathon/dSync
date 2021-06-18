@@ -1,7 +1,7 @@
 import { generatePath } from 'react-router-dom';
 import { ApiMapItem, Params } from 'http/types';
 import { httpMock, http, mock } from 'http/index';
-import getCofig from './getConfig';
+import getConfig from './getConfig';
 
 const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params) => {
   const path = generatePath(apiMapRequest.url, params);
@@ -22,7 +22,7 @@ const requestGenerator = (apiMapRequest: ApiMapItem, params?: Params) => {
   }
 
   return (payload: any) =>
-    axiosInstance[apiMapRequest.method || 'get'](path, payload, getCofig())
+    axiosInstance[apiMapRequest.method || 'get'](path, payload, getConfig())
       .then((res: any) => res)
       .catch((error: any) => error);
 };

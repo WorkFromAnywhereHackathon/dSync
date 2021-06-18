@@ -55,6 +55,7 @@ module.exports = {
       },
     ],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'react/destructuring-assignment': 0,
   },
   settings: {
     'import/resolver': {

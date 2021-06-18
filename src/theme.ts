@@ -3,8 +3,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const MuiTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#2E3192',
-      contrastText: '#666666',
+      main: '#3F74E2',
+      contrastText: '#FFFFFF',
     },
     secondary: {
       main: '#666666',
@@ -12,7 +12,15 @@ const MuiTheme = createMuiTheme({
     error: {
       main: '#FF0000',
     },
+    background: {
+      default: '#F5F9FF',
+      paper: '#FFFFFF',
+    },
   },
+  shape: {
+    borderRadius: 6,
+  },
+  spacing: 8,
   typography: {
     fontFamily: ['Mulish', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
