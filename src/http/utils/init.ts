@@ -9,8 +9,8 @@ const baseURL = process.env.REACT_APP_BASE_API_IDENTITY;
 
 export const http = axios.create({
   baseURL,
-  withCredentials: false,
-  headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+  withCredentials: true,
+  headers: { 'Access-Control-Allow-Origin': '*' },
 });
 
 export const httpMock = axios.create({ baseURL });

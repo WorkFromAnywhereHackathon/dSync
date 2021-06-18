@@ -66,8 +66,6 @@ function* loginUser({
     yield put(setLoading(false));
     yield put(setAuthenticating(false));
 
-    // window.localStorage.setItem('credentinals', JSON.stringify({ id, token, lastName, firstName }));
-
     clb();
   } catch {
     yield put(setLoggedIn.failure('Smth went wrong'));
